@@ -76,7 +76,6 @@ def bankUsingIfsc(request):
         # serializerIFSC = BranchSerializer(branch, many=True)
         serializerCity = BranchSerializer(branch_qset, many=True)
         x = JsonResponse(serializerCity.data, safe=False)
-        print(x.json())
         return render(request, 'index.html', {"data_city": serializerCity})
     else:
         return render(request, 'index.html')
