@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="import_form col-md-12">
+        <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+
+            <legend>Import IFSC Data</legend>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="csv_file">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" name="csv_file" id="csv_file" class="custom-file-input"
+                                   aria-describedby="csv_file" required>
+                            <label class="custom-file-label" for="csv_file">Choose file</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3">Upload File</button>
+
+                </div>
+            </div>
+        </form>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li style="list-style-type: none ;">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+{% endblock %}
